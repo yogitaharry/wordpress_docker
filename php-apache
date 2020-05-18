@@ -25,3 +25,12 @@ Run on host machine :
 
 #netstat -antp
 #curl localhost
+
+#docker exec -it <contid> bash
+#cd /var/www/html/
+#ls -ln
+#vim wp-config-sample.php
+     define( 'DB_NAME', 'wordpress' );
+     define( 'DB_USER', 'wordpressuser' );
+     define( 'DB_PASSWORD', '1234' );
+     define( 'DB_HOST', '172.17.0.1' );
