@@ -1,0 +1,27 @@
+we must create dockerfile for this puprose as to manage apache services while running commands for enabling modules in
+apache-php containers becomes difficult and cont gets stopped.
+
+Run on host machine :
+#mkdir wordpress_docker
+#cd wordpress_docker
+# vim Dockerfile
+         FROM php:7.3-apache
+          WORKDIR /var/www/html/
+          RUN  apt-get update \
+             && apt-get install -y --no-install-recommends \
+                    libjpeg-dev \
+                     libpng-dev \
+              && docker-php-ext-configure gd --with-png-dir=/usr  --with-jpeg-dir=/usr  \
+              && docker-php-ext-install gd mysqli opcache \
+              && a2enmod rewrite expires \
+              && curl -# -LO https://wordpress.org/latest.tar.gz \
+              && tar xzf latest.tar.gz \
+              && mv wordpress/*  /var/www/html/  \
+              && chown 33:33 /var/www/html -R
+
+
+#docker build -t worpress1 .
+#docker run -p 80:80 -d wordpress1
+
+#netstat -antp
+#curl localhost
