@@ -1,0 +1,12 @@
+Once you setup php-apache and mysql running containers with all required settings up , then verify if able to access wordpress web :
+
+browse : https://hostos-ip:80/
+   once open then fill :
+       database name : wordpress
+       DB user : wordpressuser
+       password : 1234
+       DB host : 172.17.0.x   --> get to know by inspect your apache-php running container 
+       Tag: wb_   
+       
+       Here you GO..............................
+      ENJOY you wordpress web running on top of containers......
